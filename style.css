@@ -1,64 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap');
-
-body {
-    margin: 0;
-    font-family: 'Raleway', sans-serif;
-    /* Culori de iarnă/Crăciun: Albastru închis/Navy */
-    background: linear-gradient(to bottom, #1e3c72, #2a5298); 
-    color: #fff;
-    min-height: 100vh;
-    padding: 0;
-}
-
-.hidden { 
-    display: none !important; /* Forțăm ascunderea elementului */
-}
-
-/* --- INTRO PAGE STYLES --- */
-.intro {
-    width: 100%;
-    height: 100vh; /* Asigură că ecranul intro ocupă înălțimea completă */
-    display: flex; /* Folosim flexbox DOAR pe intro pentru centrare */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    padding: 20px;
-}
-
-.intro-content {
-    z-index: 2;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.1); 
-    border-radius: 15px;
-}
-
-h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
-.subtitle { font-size: 1.4rem; margin-bottom: 30px; }
-
-#startBtn {
-    padding: 18px 36px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 14px;
-    background: #c62828; /* Roșu Crăciun */
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-#startBtn:hover {
-    background: #a92020; /* Roșu mai închis la hover */
-    transform: scale(1.05);
-}
-
 /* --- QUIZ + RESULT STYLES --- */
 .quiz-container, #result-box {
     background: #fff;
     color: #333;
-    /* Lățimea containerului alb (pentru încadrare curată) */
-    max-width: 650px; 
+    /* Mărim containerul la 750px pentru a avea loc imaginile mari */
+    max-width: 750px; 
     width: 97%;
     margin: 40px auto;
     padding: 30px;
@@ -67,120 +12,21 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.quiz-container h2 {
-    color: #c62828;
-}
-
-#question-text {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-}
-
-#answers {
-    display: flex;
-    flex-direction: column; 
-    gap: 10px;
-}
-
-#answers button {
-    margin: 5px 0; 
-    padding: 14px 22px;
-    border: none;
-    border-radius: 10px;
-    background: #2a5298; /* Albastru */
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-#answers button:hover {
-    background: #1e3c72; /* Albastru mai închis la hover */
-    transform: translateY(-2px); 
-}
-
-/* Stiluri pentru REVEAL */
-#result-box h2 {
-    color: #c62828;
-    font-size: 2rem;
-}
-#result-box h3 {
-    color: #2a5298;
-    font-size: 2.5rem;
-    margin: 20px 0;
-}
-.reveal-text {
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-/* CLASA RECENTĂ: .ticket-img este eliminată/ignorată pentru a preveni confuzia */
-
-/* CONTAINERUL FLEXBOX PENTRU CELE DOUĂ IMAGINI */
+/* CONTAINER IMAGINI: Fără Flexbox! Aliniere verticală. */
 .image-gallery {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    gap: 15px; /* Spațiu între cele două poze */
     margin: 30px auto;
+    text-align: center; 
 }
 
-/* STILUL IMAGINILOR INDIVIDUALE */
+/* STILUL IMAGINILOR INDIVIDUALE: Mărim la 600px */
 .reveal-image {
     width: 100%;
-    /* Limită individuală pentru a se încadra ambele în 650px */
-    max-width: 300px; 
+    /* CHEIA MĂRIRII: Lățimea maximă este 600px */
+    max-width: 600px; 
     height: auto;
     border-radius: 12px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Aliniere verticală */
+    display: block; 
+    margin: 15px auto; /* Spațiu între cele două imagini */
 }
-
-
-.final-message {
-    margin-top: 25px;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* --- ZĂPADĂ (SNOW) --- */
-.snow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    /* Zăpadă mare (2px) */
-    background-image: radial-gradient(white 2px, transparent 2px), 
-                      radial-gradient(white 2px, transparent 2px);
-    background-size: 80px 80px; 
-    background-position: 0 0, 40px 40px; 
-    animation: snow-fall 15s linear infinite; 
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.8; 
-}
-
-@keyframes snow-fall {
-    from {
-        background-position: 0 0, 40px 40px;
-    }
-    to {
-        background-position: 80px 100vh, 120px 100vh;
-    }
-}
-
-/* --- RESPONSIVE / MOBIL --- */
-@media (max-width: 650px) { 
-    .reveal-image {
-        /* Pe mobil, imaginile se vor extinde la toată lățimea și vor trece una sub alta */
-        max-width: 100%; 
-    }
-    
-    .quiz-container, #result-box {
-        margin: 20px auto;
-        padding: 20px 15px;
-        width: 95%;
-    }
-                                      }
