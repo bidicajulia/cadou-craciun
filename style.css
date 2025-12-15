@@ -57,7 +57,7 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
 .quiz-container, #result-box {
     background: #fff;
     color: #333;
-    /* Lățime redusă pentru o încadrare curată */
+    /* Lățimea containerului alb (pentru încadrare curată) */
     max-width: 650px; 
     width: 97%;
     margin: 40px auto;
@@ -115,7 +115,9 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
     font-weight: 800;
 }
 
-/* NOU: Containerul pentru pozele de la final (Bilete + Hotel) */
+/* CLASA RECENTĂ: .ticket-img este eliminată/ignorată pentru a preveni confuzia */
+
+/* CONTAINERUL FLEXBOX PENTRU CELE DOUĂ IMAGINI */
 .image-gallery {
     display: flex;
     flex-wrap: wrap; 
@@ -124,10 +126,10 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
     margin: 30px auto;
 }
 
-/* NOU: Stilul imaginii (pentru ambele, bilete și hotel) */
+/* STILUL IMAGINILOR INDIVIDUALE */
 .reveal-image {
     width: 100%;
-    /* Lățimea individuală: 300px * 2 + 15px gap = 615px, se încadrează în 650px */
+    /* Limită individuală pentru a se încadra ambele în 650px */
     max-width: 300px; 
     height: auto;
     border-radius: 12px;
@@ -170,9 +172,10 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
 }
 
 /* --- RESPONSIVE / MOBIL --- */
-@media (max-width: 650px) { /* Media query se aplică la lățimea containerului */
+@media (max-width: 650px) { 
     .reveal-image {
-        max-width: 100%; /* Pe mobil, imaginile se vor extinde și vor trece una sub alta */
+        /* Pe mobil, imaginile se vor extinde la toată lățimea și vor trece una sub alta */
+        max-width: 100%; 
     }
     
     .quiz-container, #result-box {
@@ -180,4 +183,4 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
         padding: 20px 15px;
         width: 95%;
     }
-}
+                                      }
