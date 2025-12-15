@@ -7,7 +7,6 @@ body {
     background: linear-gradient(to bottom, #1e3c72, #2a5298); 
     color: #fff;
     min-height: 100vh;
-    /* Eliminăm display: flex; de pe body pentru a nu interfera cu quiz-ul */
     padding: 0;
 }
 
@@ -58,7 +57,8 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
 .quiz-container, #result-box {
     background: #fff;
     color: #333;
-    max-width: 750px; /* Mărim puțin containerul general */
+    /* Lățime redusă pentru o încadrare curată */
+    max-width: 650px; 
     width: 97%;
     margin: 40px auto;
     padding: 30px;
@@ -120,20 +120,19 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
     display: flex;
     flex-wrap: wrap; 
     justify-content: center;
-    gap: 20px; /* Spațiu între cele două poze */
+    gap: 15px; /* Spațiu între cele două poze */
     margin: 30px auto;
 }
 
-/* NOU: Stilul imaginii (înlocuiește .ticket-img) */
+/* NOU: Stilul imaginii (pentru ambele, bilete și hotel) */
 .reveal-image {
     width: 100%;
-    max-width: 350px; /* Lățimea individuală pe desktop (350px + 350px + gap = 720px, se potrivește în container) */
+    /* Lățimea individuală: 300px * 2 + 15px gap = 615px, se încadrează în 650px */
+    max-width: 300px; 
     height: auto;
     border-radius: 12px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
-
-/* .ticket-img NU mai este necesar și poate fi șters. */
 
 
 .final-message {
@@ -171,7 +170,7 @@ h1 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 10px; }
 }
 
 /* --- RESPONSIVE / MOBIL --- */
-@media (max-width: 750px) { /* Am schimbat media query să se aplice la lățimea containerului */
+@media (max-width: 650px) { /* Media query se aplică la lățimea containerului */
     .reveal-image {
         max-width: 100%; /* Pe mobil, imaginile se vor extinde și vor trece una sub alta */
     }
