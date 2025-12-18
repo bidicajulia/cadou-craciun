@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const questions = [
         {
-            text: "Unde mergem de Crăciun?",
-            answers: ["Acasă", "La munte", "Într-un oraș european", "Surpriză"],
-            correct: 3 
+            text: "Care e cel mai greu lucru de Craciun?",
+            answers: ["sa nu mananci toata ciocolata", "sa pastrezi cadoul secret", "sa te hotarasti la ce film sa te uiti ", "sa cumperi cadouri"],
+            correct: 1
         },
         {
-            text: "Câte zile de relaxare credeți că sunt suficiente?",
-            answers: ["1", "2", "3", "Câte sunt"],
+            text: "Care este cea mai importanta regula a cadourilor de Craciun ?",
+            answers: ["sa fie scumpe", "sa fie practice", "sa fie multe", "sa fie ceva la care nu te astepti"],
             correct: 3 
         },
         {
@@ -16,9 +16,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
             correct: 3 
         },
         {
-            text: "Sunteți gata de surpriză?",
-            answers: ["DA", "SIGUR DA"],
-            correct: 1 
+            text: "care este cea mai apropiata mancare traditionala de "sarmale" ?",
+            answers: ["dolma", "gołąbki ", "holubtsi", "pierogi"],
+            correct: "all"
+        },
+        {
+            text: "Sunteti gata de surpriza?",
+            answers: ["DAAAA", "stiu deja ce este" , "nu"],
+            correct: 0
         }
     ];
 
