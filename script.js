@@ -62,25 +62,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function checkAnswer(index) {
-        if (index === questions[current].correct) {
-            current++;
+    const currentQuestion = questions[current];
 
-            if (current < questions.length) {
-                showQuestion();
-            } else {
-                quiz.classList.add("hidden");
-                resultBox.classList.remove("hidden");
+    // Verificăm dacă răspunsul este cel setat SAU dacă întrebarea acceptă orice răspuns ("all")
+    if (index === currentQuestion.correct || currentQuestion.correct === "all") {
+        current++;
 
-                if (typeof confetti === "function") {
-                    confetti({
-                        particleCount: 200,
-                        spread: 150,
-                        origin: { y: 0.6 }
-                    });
-                }
-            }
+        if (current < questions.length) {
+            showQuestion();
         } else {
-            alert("Mai încearcă ! 😉");
+            // Codul pentru final (ascundere quiz, afișare rezultat, confetti)
+            quiz.classList.add("hidden");
+            resultBox.classList.remove("hidden");
+
+            if (typeof confetti === "function") {
+                confetti({
+                    particleCount: 200,
+                    spread: 150,
+                    origin: { y: 0.6 }
+                });
+            }
         }
+    } else {
+        alert("Mai incearca ! 😉");
     }
+}
 });
