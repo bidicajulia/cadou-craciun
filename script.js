@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         },
         {
             text: "Care e cuvantul cheie pentru acest cadou ?",
-            answers: ["cheful ", "telefonul " , "hainele groase", "toate de mai sus"],
+            answers: ["cheful", "telefonul", "hainele groase", "toate de mai sus"],
             correct: 3
         }
         {
