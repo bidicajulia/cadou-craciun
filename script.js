@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             text: "Care e cuvantul cheie pentru acest cadou ?",
             answers: ["cheful", "telefonul", "hainele groase", "toate de mai sus"],
             correct: 3
-        }
+        }, // <--- AICI LIPSEA VIRGULA IN CODUL TAU
         {
             text: "Care este cea mai apropiata moneda ca valoare de LEU? ",
             answers: ["MDL (leu moldovenesc)", "BGN (leva)", "PLN (zlot polonez)", "HUF (forint maghiar)"],
@@ -37,25 +37,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const startBtn = document.getElementById("startBtn");
     const intro = document.getElementById("intro");
     const quiz = document.querySelector(".quiz-container");
-    // const questionText este acum definit mai jos, dar verificam textul si imaginea
     const questionText = document.getElementById("question-text");
     const answersDiv = document.getElementById("answers");
     const resultBox = document.getElementById("result-box");
     
     // Logica de dispariție a ecranului principal și afișarea quiz-ului
-    startBtn.addEventListener('click', function () {
-        // Aceasta va ascunde ecranul principal "Surpriză de Crăciun"
-        intro.classList.add("hidden"); 
-        
-        // Aceasta va afișa Micul Quiz
-        quiz.classList.remove("hidden");
-        
-        showQuestion();
-    });
+    if (startBtn) {
+        startBtn.addEventListener('click', function () {
+            intro.classList.add("hidden"); 
+            quiz.classList.remove("hidden");
+            showQuestion();
+        });
+    }
 
     function showQuestion() {
         const q = questions[current];
-        questionText.innerText = q.text; // Aici punem textul intrebarii
+        questionText.innerText = q.text; 
         answersDiv.innerHTML = "";
 
         q.answers.forEach((answer, index) => {
@@ -67,29 +64,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function checkAnswer(index) {
-    const currentQuestion = questions[current];
+        const currentQuestion = questions[current];
 
-    // Verificăm dacă răspunsul este cel setat SAU dacă întrebarea acceptă orice răspuns ("all")
-    if (index === currentQuestion.correct || currentQuestion.correct === "all") {
-        current++;
+        if (index === currentQuestion.correct || currentQuestion.correct === "all") {
+            current++;
 
-        if (current < questions.length) {
-            showQuestion();
-        } else {
-            // Codul pentru final (ascundere quiz, afișare rezultat, confetti)
-            quiz.classList.add("hidden");
-            resultBox.classList.remove("hidden");
+            if (current < questions.length) {
+                showQuestion();
+            } else {
+                quiz.classList.add("hidden");
+                resultBox.classList.remove("hidden");
 
-            if (typeof confetti === "function") {
-                confetti({
-                    particleCount: 200,
-                    spread: 150,
-                    origin: { y: 0.6 }
-                });
+                if (typeof confetti === "function") {
+                    confetti({
+                        particleCount: 200,
+                        spread: 150,
+                        origin: { y: 0.6 }
+                    });
+                }
             }
+        } else {
+            alert("Mai incearca ! 😉");
         }
-    } else {
-        alert("Mai incearca ! 😉");
     }
-}
 });
